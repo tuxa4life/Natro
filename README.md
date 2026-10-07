@@ -258,3 +258,7 @@ android\gradlew.bat -p android testDebugUnitTest
   Claude answers.
 - Spotify control needs Premium. Spotify's rules for personal apps leave out
   recommendations and Spotify's own playlists (On Repeat, Discover Weekly).
+
+## License
+
+[MIT](LICENSE).
