@@ -1,0 +1,21 @@
+[project]
+name = "natro-voice"
+version = "0.1.0"
+description = "Georgian speech (with English mixed in) to English: Google Chirp 3 + Claude. Runs on the VPS."
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=1.11",
+    "google-cloud-speech>=2.41",
+    "av",
+]
+
+[project.optional-dependencies]
+# tools/record_tests.py records with the microphone.
+tools = ["sounddevice"]
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["natro_voice"]

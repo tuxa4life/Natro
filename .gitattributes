@@ -1,0 +1,7 @@
+# The same files on every computer: text is stored with LF whatever core.autocrlf says.
+* text=auto
+# Shell scripts must keep LF line endings to run; Windows scripts keep CRLF.
+android/gradlew text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf

@@ -1,0 +1,12 @@
+# Names, brands, titles and English terms you use when speaking Georgian.
+# One per line, spelled exactly as it should appear in the English output.
+# Lines starting with # are ignored.
+#
+# Examples:
+# Notion
+# deadline
+# Instagram story
+
+Natro
+VS Code
+padel

@@ -1,0 +1,28 @@
+# Natro's brain as a system service (needs sudo to install).
+#   sudo cp deploy/natro.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now natro
+#   journalctl -u natro -f
+# Paths assume the repo is in /home/natro/natro and run by the user "natro".
+
+[Unit]
+Description=Natro agent (the brain)
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+User=natro
+WorkingDirectory=/home/natro/natro/agent
+ExecStart=/home/natro/natro/.venv/bin/python -m natro_agent.server
+# Print straight to the journal (journalctl -u natro).
+Environment=PYTHONUNBUFFERED=1
+# Also covers starting before Tailscale has its address: it retries until it can listen.
+Restart=on-failure
+RestartSec=5
+# Other services share this VPS: Natro may not take more memory than this.
+MemoryMax=600M
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

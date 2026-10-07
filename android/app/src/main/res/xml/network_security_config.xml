@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Natro's brain is reached over Tailscale (WireGuard-encrypted), as ws:// to the VPS's Tailscale address. -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">100.101.107.5</domain>
+    </domain-config>
+</network-security-config>

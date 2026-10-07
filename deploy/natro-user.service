@@ -1,0 +1,21 @@
+# Natro's brain as a user service, for when there is no sudo on the VPS.
+#   mkdir -p ~/.config/systemd/user && cp deploy/natro-user.service ~/.config/systemd/user/natro.service
+#   systemctl --user daemon-reload && systemctl --user enable --now natro
+#   journalctl --user -u natro -f
+# To keep running after you log out, lingering must be on: loginctl enable-linger
+# (may itself need an admin; otherwise use the @reboot cron fallback in deploy/README.md).
+# Paths assume the repo is in ~/natro.
+
+[Unit]
+Description=Natro agent (the brain)
+
+[Service]
+WorkingDirectory=%h/natro/agent
+ExecStart=%h/natro/.venv/bin/python -m natro_agent.server
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=5
+MemoryMax=600M
+
+[Install]
+WantedBy=default.target

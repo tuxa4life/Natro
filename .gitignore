@@ -1,0 +1,21 @@
+# Secrets: each machine has its own .env with only what it needs.
+.env
+google-key.json
+google-oauth-client.json
+*-key.json
+tokens/
+
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# Personal data: memory, notes, logs, voice recordings and results never go into git.
+memory/
+notes/
+logs/
+testset/
+results/
+
+# Downloaded models (see pc/natro_pc/wakeword.py for the source).
+models/

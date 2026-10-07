@@ -1,0 +1,33 @@
+[project]
+name = "natro-agent"
+version = "0.1.0"
+description = "Natro's brain: the agent loop, identity, tools, confirmations and costs. Runs on the VPS."
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=1.11",
+    "mcp>=2.3",
+    "websockets>=15",
+    "google-genai>=2.28",
+    # Calendar, Tasks and Gmail over Google's REST APIs.
+    "google-auth>=2.40",
+    "requests",
+    # Time zones on Windows, which has no system zone database.
+    "tzdata",
+    # Reading PDFs from Google Drive.
+    "pypdf",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+# The one-time Google sign-in (natro_agent.google_signin), on the PC.
+signin = ["google-auth-oauthlib"]
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["natro_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

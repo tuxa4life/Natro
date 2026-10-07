@@ -1,0 +1,10 @@
+# local.properties holds the SDK path and Natro's device token.
+local.properties
+.gradle/
+.kotlin/
+build/
+*.apk
+.idea/
+# Downloaded by app/build.gradle.kts: sherpa-onnx and the wake-word model.
+app/libs/
+app/src/main/assets/kws/

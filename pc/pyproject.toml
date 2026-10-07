@@ -1,0 +1,33 @@
+[project]
+name = "natro-pc"
+version = "0.1.0"
+description = "Natro on the PC: wake word, recording, PC tools and spoken replies."
+requires-python = ">=3.11"
+dependencies = [
+    "sounddevice",
+    # sounddevice needs it to play audio (spoken replies).
+    "numpy",
+    "sherpa-onnx>=1.13",
+    "websockets>=15",
+    # PC tools: windows and processes, Windows Search, reading PDFs.
+    "psutil",
+    "pywin32",
+    "pypdf",
+    # The tray app: its icon, the talk key.
+    "pystray",
+    "pillow",
+    "pynput",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["natro_pc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

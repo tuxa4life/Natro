@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Natro as the phone's digital assistant (see Assistant.kt). -->
+<voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:recognitionService="dev.natro.NatroRecognitionService"
+    android:sessionService="dev.natro.NatroSessionService"
+    android:settingsActivity="dev.natro.MainActivity"
+    android:supportsAssist="true"
+    android:supportsLaunchVoiceAssistFromKeyguard="true" />
